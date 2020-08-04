@@ -1,17 +1,19 @@
-/*
-COLORS
+@import "core/utilities";
 
-Primary: #eb2f64
-Primary light: #FF3366
-Primary dark: #BA265D
+@import "components/btn-inline";
+@import "components/btn-slide";
+@import "components/cta";
+@import "components/description";
+@import "components/gallery";
+@import "components/legal";
+@import "components/logo";
+@import "components/overview";
+@import "components/search";
+@import "components/side-nav";
+@import "components/user-nav";
+@import "components/user-review";
 
-Grey light 1: #faf9f9
-Grey light 2: #f4f2f2
-Grey light 3: #f0eeee
-Grey light 4: #ccc
+@import "core/animations";
+@import "core/base";
 
-Grey dark 1: #333
-Grey dark 2: #777
-Grey dark 3: #999
-
-*/
+@import "layout/home";

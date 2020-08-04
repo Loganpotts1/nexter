@@ -1,0 +1,47 @@
+.btn {
+
+    &:link, &:visited { /* :link is targeting the link of an element, and :visited is targeting the same link after it has been clicked already */
+        text-decoration: none;
+        text-transform: uppercase;
+        padding: 1.5rem 4rem;
+        display: inline-block; /* inline-block allows the element to be aligned as if it were inline, but gives it the space it needs as a block element */
+        transition: all .2s; /* transition: all - controls the change of state between all different pseudo classes */
+        border-radius: 10rem;
+        position: relative; /* this allows children elements that are position:absolute to be positioned relative to this element */
+        font-size: 1.6rem;
+    }
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-shadow, 0.2);
+    }
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .6rem 1.5rem rgba($color-shadow, 0.3);
+    }
+    &::after { /* ::after is works like a seperate element, and is treated as a child of the original element */
+        content: ""; /* content has to be defined in ::after, but just put "" if there's no change */
+        display: inline-block; /* again, has to be defined, but display it as the original element */
+        width: 100%;
+        height: 100%;
+        border-radius: 10rem;
+        position: absolute; /* we have to add this to position the after element behind the original/parent element */
+        top: 0;
+        left: 0;
+        z-index: -1;
+        transition: all .4s; /* this is different from the .btn transition because ::after is technically its own element */
+    }
+    &:hover::after { /* this is setting the :hover condition for the ::after element */
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+    }
+    &--animated {
+        animation: moveInTop .5s ease-out .75s backwards; /* fillmode backwards applies the animation's 0% to the original element */
+    }
+    &--white {
+        background-color: $color-white;
+        color: $color-grey;
+    }
+    &--white::after {
+        background-color: $color-white;
+    }
+}

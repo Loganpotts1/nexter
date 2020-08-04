@@ -6,3 +6,168 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%; /* the default browser font size is 16px, and 16*62.5= 10px.
+/* with this set, we can use rem for anything we want to scale relative to screen size */
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+}
+
+.header {
+    height: 95vh;
+    background-image: /* the background that goes first will be on top */
+        linear-gradient(to right bottom,
+        rgba(128, 214, 113, 0.8),
+        rgba(39, 180, 133, 0.8)), 
+        url(../img/hero.jpg);
+    background-position: top; /* background position determines how it gets cropped when changing view sizes */
+    background-size: cover; /* cover sets the image to the size of the parent element */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* polygon starts from top-left and works clockwise */
+}
+
+.header__logo-box {
+    position: absolute;
+    top: 6.5rem;
+    left: 6.5rem;
+}
+
+.header__logo {
+    height: 4.5rem;
+}
+
+.header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase;
+    margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+    display: block;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    font-size: 6rem;
+    animation: moveInLeft 1s ease-out;
+}
+
+.heading-primary--sub {
+    display: block;
+    font-weight: 700;
+    letter-spacing: 1.74rem;
+    font-size: 2rem;
+    animation: moveInRight 1s ease-out;
+}
+
+.btn:link, /* :link is targeting the link of an element, and :visited is targeting the same link after it has been clicked already */
+.btn:visited {
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 1.5rem 4rem;
+    display: inline-block; /* inline-block allows the element to be aligned as if it were inline, but gives it the space it needs as a block element */
+    transition: all .2s; /* transition: all - controls the change of state between all different pseudo classes */
+    border-radius: 10rem;
+    position: relative; /* this allows children elements that are position:absolute to be positioned relative to this element */
+    font-size: 1.6rem;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .6rem 1.5rem rgba(0, 0, 0, 0.3);
+}
+
+.btn::after { /* ::after is works like a seperate element, and is treated as a child of the original element */
+    content: ""; /* content has to be defined in ::after, but just put "" if there's no change */
+    display: inline-block; /* again, has to be defined, but display it as the original element */
+    width: 100%;
+    height: 100%;
+    border-radius: 10rem;
+    position: absolute; /* we have to add this to position the after element behind the original/parent element */
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; /* this is different from the .btn transition because ::after is technically its own element */
+}
+
+.btn--white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after { /* this is setting the :hover condition for the ::after element */
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn--white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn--animated {
+    animation: moveInTop .5s ease-out .75s backwards; /* fillmode backwards applies the animation's 0% to the original element */
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translate(-10rem);
+    }
+    80% {
+        transform: translate(1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translate(10rem);
+    }
+    80% {
+        transform: translate(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(5rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
