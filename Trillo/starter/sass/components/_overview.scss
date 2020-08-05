@@ -34,6 +34,7 @@
         @media screen and (max-width: $bp-smaller) {
             order: 2;
             margin-left: auto;
+            padding: 1.5rem 0;
         }
 
         &-icon {
@@ -68,7 +69,7 @@
         align-items: center;
 
         @media screen and (max-width: $bp-smaller) {
-            padding: 0 1.5rem;
+            padding: 1.5rem 0;
             margin-left: 0;
             flex-direction: row;
             justify-content: space-around;
