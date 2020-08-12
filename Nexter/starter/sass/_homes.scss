@@ -1,4 +1,53 @@
 .homes {
-    background-color: var(--color-secondary);
     grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-gap: 7rem;
+    margin: 15rem 0;
+}
+
+.home {
+    background-color: var(--color-grey-light-1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    &__image {
+        width: 100%;
+        grid-column: 1 / -1;
+        grid-row: 1 / 2;
+    }
+
+    &__like {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        fill: var(--color-primary);
+        height: 3rem;
+        width: 3rem;
+        justify-self: end;
+        margin: 1rem;
+    }
+
+    &__name {
+        grid-column: 1 / -1;
+    }
+
+    &__location,
+    &__rooms,
+    &__area,
+    &__price {
+        
+        svg {
+            fill: var(--color-primary);
+            height: 2rem;
+            width: 2rem;
+        }
+        
+        p {
+
+        }
+    }
+
+    &__button {
+        grid-column: 1 / -1;
+    }
 }
