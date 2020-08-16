@@ -7,6 +7,12 @@
     justify-content: center;
     align-items: center;
 
+    @media screen and (max-width: $bp-medium) {
+        grid-column: 1 / -1;
+        grid-row: 3 / 4;
+        padding: 6rem;
+    }
+
     &__list {
         margin-top: 2rem;
         display: grid;
@@ -14,6 +20,10 @@
         grid-column-gap: 2rem;
         grid-row-gap: 5vh;
         align-items: center;
+
+        @media screen and (max-width: $bp-medium) {
+            grid-template-columns: repeat(3, min-content max-content);
+        }
     }
 
     &__image {
