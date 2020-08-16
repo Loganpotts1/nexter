@@ -11,6 +11,7 @@
         background-size: cover;
 
         @media screen and (max-width: $bp-medium) {
+            margin-top: 6rem;
             grid-column: 1 / -1;
         }
     }

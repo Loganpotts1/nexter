@@ -15,9 +15,11 @@
     --font-display: 'Josefin Sans', sans-serif;
 }
 
-$bp-largest: 1200px;
+$bp-extra-large: 2200px;
+$bp-larger: 1200px;
 $bp-large: 1000px;
 $bp-medium: 800px;
+$bp-small: 600px;
 
 .mb-sm {margin-bottom: 2rem;} 
 .mb-md {margin-bottom: 3rem;}
@@ -36,7 +38,11 @@ html {
     box-sizing: border-box;
     font-size: 62.5%; // 1rem = 10px
 
-    @media screen and (max-width: $bp-largest) {
+    @media screen and (min-width: $bp-extra-large) {
+        font-size: 90%;
+    }
+
+    @media screen and (max-width: $bp-larger) {
         font-size: 50%;
     }
 }
